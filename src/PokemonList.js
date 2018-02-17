@@ -15,19 +15,17 @@ updateFilter() {
 
 render () {
     const { filterString } = this.state
-    const pokemons = this.props.pokemons.filter((p) => {
-        return p.title.toUpperCase().includes(filterString.toUpperCase())
-    })
+    console.log(this.props)
 
     return (
         <div className="Pokemons">
           <input onChange={this.updateFilter.bind(this)} ref="filterinput" className="input is-large" type="text" placeholder="Filter The List" />
           <ul className="menu-list">
-            {books.map((p) => {
+            {/* {pokemons.map((p) => {
               return (
                 <li key={p._id}>
                   <Link to={`/pokemons/${p._id}`}>{p.title}</Link>
-                </li>
+                </li> */}
               )
             })}
           </ul>
@@ -36,5 +34,5 @@ render () {
     }
   }
   
-  export default Pokemons 
+  export default Pokemons
 
