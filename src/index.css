@@ -3,5 +3,6 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 24px;
-  background-color: rgb(207, 207, 207);
+  /* background-color: rgb(207, 207, 207); */
+  background-color: rgb(184, 51, 51);
 }

@@ -15,8 +15,6 @@ class Pokemon extends React.Component {
               <li>Name: {pokemon.name}</li>
               <li>Height {pokemon.height}</li>
               <li>Weight: {pokemon.weight}</li>
-              {/* <li>Base-experience: {pokemon.base-experience}</li> */}
-              <li><a href={pokemon.link}>Wikipedia</a></li>
             </ul>
           </div>
         </div>
