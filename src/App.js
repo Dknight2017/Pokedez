@@ -20,10 +20,11 @@ class App extends Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: 'http://pokeapi.salesstock.net/api/v2',
-      headers: {'User-Agents': "cheese"}
-    }).then((err, data) => {
-      console.log(err)
+      url: 'https://pokeapi.co/api/v2/pokemon'
+    }).then(( res) => {
+      this.setState({
+        pokemons : res.data.results
+      })
     })
   }
 
@@ -51,10 +52,10 @@ class App extends Component {
 
             {/* Right Column */}
             <div className="column is-8">
-              <Route path="/pokemons/:id" render={(routeProps) => {
-                const pokemonId = routeProps.match.params.id
+              <Route path="/pokemons/:name" render={(routeProps) => {
+                const pokemonName = routeProps.match.params.name
                 const pokemon = pokemons.find((p) => {
-                  return p._id === pokemonId
+                  return p.name === pokemonName
                 })
                 return <PokemonDetail pokemon={pokemon} />
               }} />
