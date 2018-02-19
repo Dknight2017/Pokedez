@@ -42,12 +42,16 @@ class App extends Component {
           <h1 className="title is-1 has-text-centered">Best Pokemons To Collect</h1>
           
           <div className="columns">
-            
+           
+          
             {/* Left Column */}
+            <div className='left'>
+            <input type="text" placeholder="Choose a pokemon.."/>            
             <div className="column is-4">
-              <Route path="/pokemons" render={() => {
-                return <PokemonList pokemons={pokemons} />
-               }} />
+                <Route path="/pokemons" render={() => {
+                  return <PokemonList pokemons={pokemons} />
+                }} />
+              </div>
             </div>
 
             {/* Right Column */}
