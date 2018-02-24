@@ -59,7 +59,7 @@ class App extends Component {  // Creating app component
                 const pokemonId = routeProps.match.params.id
                 const pokemon = pokemons[pokemonId]
                 
-                return <PokemonDetail pokemon={pokemon} index={Number(pokemonId + 1)}/>
+                return <PokemonDetail pokemon={pokemon} index={Number(pokemonId) + 1}/>
               }} />
             </div>
 

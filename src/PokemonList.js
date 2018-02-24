@@ -3,16 +3,6 @@ import { Link } from 'react-router-dom'
 
 class Pokemons extends React.Component {
 
-  // state = {
-  //   filterSting: ''
-  // }
-
-// updateFilter() {
-//     this.setState ({
-//       filterString: this.refs.filter.value
-//     })
-// }
-
 render () {
     // const { filterString } = this.state
     console.log(this.props)
