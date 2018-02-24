@@ -24,7 +24,7 @@ render () {
             {this.props.pokemons.map((p,i) => {
               return (
                 <li key={p._id}>
-                  <Link to={`/pokemons/${p.name}`}>{p.name}</Link>
+                  <Link to={`/pokemons/${i}`}>{p.name}</Link>
                 </li>
               )
             })}

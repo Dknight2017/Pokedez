@@ -1,35 +1,34 @@
 
-import React, { Component } from 'react';
-import { Redirect, Route } from 'react-router-dom'
-import PokemonList from './PokemonList'
-import PokemonDetail from './PokemonDetails'
+import React, { Component } from 'react'; // Importing React Folder from Node Modules 
+import { Redirect, Route } from 'react-router-dom' // Importing a function called Redirect and Route from the node moudule - react-router-dom
+import PokemonList from './PokemonList' // Importing Pokemon class from React component 
+import PokemonDetail from './PokemonDetails' // Importing Pokemon details to create Pokemon component
 import './App.css'
 
-import axios from 'axios'
+import axios from 'axios' // Importing axios from Node Modules
 
-// import pokemonList from './pokemons.json'
 
-// console.log(pokemonList)
+class App extends Component {  // Creating app component 
 
-class App extends Component {
-
-  state = {
-    pokemons: []
+  state = {         // Setting the state on the App component 
+    pokemons: []    // Creating the pokemon state with an empty array
   }
 
-  componentDidMount() {
+  componentDidMount() {             // Mounts component ready for use ajax calls
+    console.log(PokemonList)        // Console logging Pokemon List
+    console.log(Route, typeof Route) // Console logging type of route 
     axios({
-      method: 'get',
-      url: 'https://pokeapi.co/api/v2/pokemon'
-    }).then(( res) => {
-      this.setState({
-        pokemons : res.data.results
+      method: 'get',                // Axios sending a get request 
+      url: 'https://pokeapi.co/api/v2/pokemon'  // Axios get request to recieve and API
+    }).then((res) => {                    // Responding to the request 
+      this.setState({                       // Setting the state
+        pokemons : res.data.results       // Retrieving the pokemons data
       })
     })
   }
 
-  render() {
-    const { pokemons } = this.state
+  render() {                          // Call the render method 
+    const { pokemons } = this.state   // Setting the state to pokemons data
     return (
       <div className="App">
         {/* Redirect to "/pokemons" from the "/" root URL */}
@@ -56,12 +55,11 @@ class App extends Component {
 
             {/* Right Column */}
             <div className="column is-8">
-              <Route path="/pokemons/:name" render={(routeProps) => {
-                const pokemonName = routeProps.match.params.name
-                const pokemon = pokemons.find((p) => {
-                  return p.name === pokemonName
-                })
-                return <PokemonDetail pokemon={pokemon} />
+              <Route path="/pokemons/:id" render={(routeProps) => {
+                const pokemonId = routeProps.match.params.id
+                const pokemon = pokemons[pokemonId]
+                
+                return <PokemonDetail pokemon={pokemon} index={Number(pokemonId + 1)}/>
               }} />
             </div>
 
