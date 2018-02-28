@@ -20,7 +20,8 @@ class App extends Component {  // Creating app component
     axios({
       method: 'get',                // Axios sending a get request 
       url: 'https://pokeapi.co/api/v2/pokemon'  // Axios get request to recieve and API
-    }).then((res) => {                    // Responding to the request 
+    }).then((res) => {                    // Responding to the request
+      console.log(res.data.results) 
       this.setState({                       // Setting the state
         pokemons : res.data.results       // Retrieving the pokemons data
       })
@@ -40,12 +41,11 @@ class App extends Component {  // Creating app component
           {/* TITLE */}
           <h1 className="title is-1 has-text-centered">Best Pokemons To Collect</h1>
           
-          <div className="columns">
+          <div className="columns main-stuff">
            
           
             {/* Left Column */}
-            <div className='left'>
-            <input type="text" placeholder="Choose a pokemon.."/>            
+            <div className='left'>          
             <div className="column is-4">
                 <Route path="/pokemons" render={() => {
                   return <PokemonList pokemons={pokemons} />

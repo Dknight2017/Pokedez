@@ -5,4 +5,5 @@ body {
   font-size: 24px;
   /* background-color: rgb(207, 207, 207); */
   background-color: rgb(110, 108, 108);
+  display: flex;
 }

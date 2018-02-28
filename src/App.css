@@ -46,3 +46,7 @@ a:hover{
 .left-colum {
   text-align: left;
 }
+.main-stuff{
+  display: flex;
+  margin-left: 120px;
+}
